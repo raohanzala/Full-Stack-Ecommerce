@@ -2,8 +2,19 @@
 import CategoryList from './CategoryList/CategoryList'
 import Hero from './Hero/Hero'
 import Products from './../Products/Products'
+import { useEffect } from 'react'
+import { fetchDataFromApi } from '../../utils/api'
 
 function Home() {
+
+  useEffect(()=> {
+    getCategories()
+  })
+
+  const getCategories = ()=> {
+    fetchDataFromApi('/api/categories').then((res)=> console.log(res))
+  }
+
   return (
     <div>
       <Hero/>

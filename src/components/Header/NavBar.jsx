@@ -1,7 +1,7 @@
 import {  Link, useNavigate } from "react-router-dom";
 import { IoMdCart, IoMdSearch } from "react-icons/io";
 
-function NavBar({setShowCart}) {
+function NavBar({setShowCart, setSearchModal}) {
 
   const navigate = useNavigate()
   // const navLinks = ['Home', 'About', "Men's", "Women's"]
@@ -17,7 +17,7 @@ function NavBar({setShowCart}) {
       </ul>
 
       <div className="flex items-center">
-        <span>
+        <span onClick={()=> setSearchModal(true)}>
 
       <IoMdSearch className="text-2xl cursor-pointer" />
         </span>

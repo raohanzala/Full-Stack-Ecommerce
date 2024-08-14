@@ -1,21 +1,23 @@
 import React from 'react'
-import PrdctImg from '../../../assets/hero-1.jfif'
+import { useNavigate } from 'react-router-dom'
 
-function Product() {
+
+function Product({id, data}) {
+
+  const navigate = useNavigate()
   return (
-    <div className='w-full'>
+    <div className='w-full' onClick={()=> navigate(`/product/${id}`)}>
           <div>BEST SELLING</div>
 
           <div className="w-full h-[10rem] object-cover">
-            <img src={PrdctImg} className='w-full h-full' alt=""/>
+            <img src={process.env.REACT_APP_DEV_URL + data.img.data[0].attributes.url} className='w-full h-full' alt=""/>
           </div>
           <div className="">
 
-            <div className="text-lg text-gray-600 ">Men Watch</div>
+            <div className="text-lg text-gray-600 ">{data.title}</div>
             <div className="product-name">Armani Exchange Women’s Quartz Grey Leather Strap Gold Dial 35mm Watch AX5237/B
             </div>
-            <div className="product-price">
-              RS 7,650</div>
+            <div className="product-price">{data.price}</div>
           </div>
         </div>
   )
